@@ -1,0 +1,114 @@
+
+
+    *{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      transition:all 0.5s ease;
+    }
+
+    /* LIGHT MODE */
+
+    .light-mode{
+      background:#f1f5f9;
+      color:#111827;
+    }
+
+    .light-mode nav{
+      background:#4f46e5;
+    }
+
+    .light-mode .hero{
+      background:#6366f1;
+    }
+
+    .light-mode .glass{
+      background:white;
+      color:#111827;
+    }
+
+    .light-mode .card{
+      background:white;
+      color:#111827;
+    }
+
+    .light-mode .list-item{
+      background:white;
+      color:#111827;
+    }
+
+    .light-mode footer{
+      background:#0f172a;
+      color:white;
+    }
+
+    .light-mode input{
+      background:white;
+      color:black;
+    }
+
+    /* DARK MODE */
+
+    .dark-mode{
+      background:#020617;
+      color:white;
+    }
+
+    .dark-mode nav{
+      background:#0f172a;
+    }
+
+    .dark-mode .hero{
+      background:#111827;
+    }
+
+    .dark-mode .glass{
+      background:#1e293b;
+      color:white;
+    }
+
+    .dark-mode .card{
+      background:#1e293b;
+      color:white;
+    }
+
+    .dark-mode .list-item{
+      background:#334155;
+      color:white;
+    }
+
+    .dark-mode footer{
+      background:black;
+      color:white;
+    }
+
+    .dark-mode input{
+      background:#334155;
+      color:white;
+    }
+
+    .dark-mode input::placeholder{
+      color:#cbd5e1;
+    }
+
+    .dropdown{
+      display:none;
+    }
+
+    .show-dropdown{
+      display:block;
+    }
+
+    .mobile-menu{
+      display:none;
+    }
+
+    .show-menu{
+      display:flex;
+    }
+
+    .active-link{
+      background:white;
+      color:black !important;
+    }

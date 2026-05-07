@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive DOM Project</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+
+  
+</head>
+
+<body class="light-mode">
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full top-0 z-50 text-white shadow-lg transition-all duration-500">
+
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <h1 class="text-2xl font-bold">
+        DOM Master
+      </h1>
+
+      <!-- DESKTOP MENU -->
+      <ul id="navMenu" class="hidden md:flex items-center gap-6">
+
+        <li>
+          <a href="#" class="nav-link active-link px-4 py-2 rounded-lg transition-all duration-300">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all duration-300">
+            About
+          </a>
+        </li>
+
+        <!-- DROPDOWN -->
+        <li class="relative">
+
+          <button id="dropdownBtn"
+            class="px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all duration-300">
+            Services ▼
+          </button>
+
+          <div id="dropdownMenu"
+            class="dropdown absolute top-14 left-0 bg-white text-black rounded-xl shadow-xl overflow-hidden w-48">
+
+            <a href="#" class="block px-4 py-3 hover:bg-slate-100">
+              Web Design
+            </a>
+
+            <a href="#" class="block px-4 py-3 hover:bg-slate-100">
+              JavaScript
+            </a>
+
+            <a href="#" class="block px-4 py-3 hover:bg-slate-100">
+              UI/UX Design
+            </a>
+
+          </div>
+
+        </li>
+
+        <li>
+          <a href="#" class="nav-link px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all duration-300">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- RIGHT SIDE -->
+      <div class="flex items-center gap-4">
+
+        <!-- DARK MODE BUTTON -->
+        <button id="themeBtn"
+          class="bg-black text-white px-5 py-2 rounded-xl hover:scale-105 transition-all duration-300">
+          Dark Mode
+        </button>
+
+        <!-- HAMBURGER -->
+        <button id="hamburger"
+          class="md:hidden text-3xl">
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="mobile-menu flex-col bg-indigo-800 md:hidden px-6 py-4 gap-4">
+
+      <a href="#" class="nav-link px-4 py-2 rounded-lg bg-white text-black">
+        Home
+      </a>
+
+      <a href="#" class="nav-link px-4 py-2 rounded-lg hover:bg-white hover:text-black">
+        About
+      </a>
+
+      <a href="#" class="nav-link px-4 py-2 rounded-lg hover:bg-white hover:text-black">
+        Services
+      </a>
+
+      <a href="#" class="nav-link px-4 py-2 rounded-lg hover:bg-white hover:text-black">
+        Contact
+      </a>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section
+    class="hero min-h-screen flex items-center justify-center px-6 transition-all duration-500">
+
+    <div class="text-center text-white max-w-3xl">
+
+      <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+        Interactive DOM Manipulation
+      </h1>
+
+      <p id="heroText"
+        class="text-lg md:text-2xl mb-8">
+        Build responsive and dynamic websites using JavaScript DOM.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+
+        <button id="changeTextBtn"
+          class="bg-white text-black px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300">
+          Change Text
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-7xl mx-auto px-6 py-20">
+
+    <!-- INPUT SECTION -->
+    <section
+      class="glass rounded-3xl shadow-2xl p-8 mb-14 transition-all duration-500">
+
+      <h2 class="text-3xl font-bold mb-6">
+        User Input Interaction
+      </h2>
+
+      <div class="flex flex-col md:flex-row gap-4">
+
+        <input
+          id="nameInput"
+          type="text"
+          placeholder="Enter your name..."
+          class="flex-1 px-5 py-4 rounded-xl outline-none"
+        />
+
+        <button id="displayBtn"
+          class="bg-indigo-700 text-white px-8 py-4 rounded-xl hover:bg-indigo-800 transition-all duration-300">
+          Display
+        </button>
+
+      </div>
+
+      <h3 id="displayText"
+        class="mt-6 text-2xl font-semibold">
+      </h3>
+
+    </section>
+
+    <!-- DYNAMIC LIST -->
+    <section
+      class="glass rounded-3xl shadow-2xl p-8 mb-14 transition-all duration-500">
+
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+
+        <h2 class="text-3xl font-bold">
+          Dynamic Activity List
+        </h2>
+
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search activity..."
+          class="px-5 py-3 rounded-xl outline-none w-full md:w-80"
+        />
+
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-4 mb-8">
+
+        <input
+          id="itemInput"
+          type="text"
+          placeholder="Add new activity..."
+          class="flex-1 px-5 py-4 rounded-xl outline-none"
+        />
+
+        <button id="addItemBtn"
+          class="bg-pink-600 text-white px-8 py-4 rounded-xl hover:bg-pink-700 transition-all duration-300">
+          Add Item
+        </button>
+
+      </div>
+
+      <ul id="activityList"
+        class="space-y-4">
+      </ul>
+
+      <p class="mt-5 text-sm">
+        Click any item to remove it from the list.
+      </p>
+
+    </section>
+
+    <!-- CARDS -->
+    <section>
+
+      <h2 class="text-4xl font-black mb-10">
+        Explore Activities
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- CARD -->
+        <div class="card rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200"
+            class="h-52 w-full object-cover"
+          />
+
+          <div class="p-6">
+
+            <h3 class="text-2xl font-bold mb-3">
+              Mountain Hiking
+            </h3>
+
+            <p class="mb-6">
+              Experience nature and breathtaking mountain adventures.
+            </p>
+
+            <button
+              class="activityBtn w-full bg-indigo-700 text-white py-3 rounded-xl hover:bg-indigo-800 transition-all duration-300">
+              Join Activity
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="card rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+          <img
+            src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200"
+            class="h-52 w-full object-cover"
+          />
+
+          <div class="p-6">
+
+            <h3 class="text-2xl font-bold mb-3">
+              City Tour
+            </h3>
+
+            <p class="mb-6">
+              Discover beautiful cities and exciting landmarks.
+            </p>
+
+            <button
+              class="activityBtn w-full bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 transition-all duration-300">
+              Join Activity
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="card rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200"
+            class="h-52 w-full object-cover"
+          />
+
+          <div class="p-6">
+
+            <h3 class="text-2xl font-bold mb-3">
+              Food Festival
+            </h3>
+
+            <p class="mb-6">
+              Taste delicious meals and cultural cuisines.
+            </p>
+
+            <button
+              class="activityBtn w-full bg-orange-500 text-white py-3 rounded-xl hover:bg-orange-600 transition-all duration-300">
+              Join Activity
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="card rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200"
+            class="h-52 w-full object-cover"
+          />
+
+          <div class="p-6">
+
+            <h3 class="text-2xl font-bold mb-3">
+              Beach Adventure
+            </h3>
+
+            <p class="mb-6">
+              Relax and enjoy exciting beach activities and fun.
+            </p>
+
+            <button
+              class="activityBtn w-full bg-cyan-600 text-white py-3 rounded-xl hover:bg-cyan-700 transition-all duration-300">
+              Join Activity
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-10 mt-20 transition-all duration-500">
+
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+      <h2 class="text-3xl font-bold mb-4">
+        DOM Manipulation Project
+      </h2>
+
+      <p>
+        Built with HTML, Tailwind CSS and JavaScript DOM Manipulation.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    // NAV ACTIVE LINKS
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+
+      link.addEventListener("click", function(){
+
+        navLinks.forEach(item => {
+          item.classList.remove("active-link");
+        });
+
+        this.classList.add("active-link");
+
+      });
+
+    });
+
+    // DROPDOWN MENU
+    const dropdownBtn = document.getElementById("dropdownBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    dropdownBtn.addEventListener("click", () => {
+
+      dropdownMenu.classList.toggle("show-dropdown");
+
+    });
+
+    // MOBILE MENU
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    hamburger.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("show-menu");
+
+    });
+
+    // CHANGE HERO TEXT
+    const heroText = document.getElementById("heroText");
+    const changeTextBtn = document.getElementById("changeTextBtn");
+
+    changeTextBtn.addEventListener("click", () => {
+
+      heroText.textContent =
+      "JavaScript can dynamically change website content instantly.";
+
+    });
+
+    // DARK MODE
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", () => {
+
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+
+      if(document.body.classList.contains("dark-mode")){
+
+        themeBtn.textContent = "Light Mode";
+
+        themeBtn.classList.remove("bg-black");
+        themeBtn.classList.add("bg-white");
+        themeBtn.classList.add("text-black");
+
+      }else{
+
+        themeBtn.textContent = "Dark Mode";
+
+        themeBtn.classList.remove("bg-white");
+        themeBtn.classList.remove("text-black");
+
+        themeBtn.classList.add("bg-black");
+        themeBtn.classList.add("text-white");
+
+      }
+
+    });
+
+    // DISPLAY USER INPUT
+    const nameInput = document.getElementById("nameInput");
+    const displayBtn = document.getElementById("displayBtn");
+    const displayText = document.getElementById("displayText");
+
+    displayBtn.addEventListener("click", () => {
+
+      if(nameInput.value.trim() === ""){
+
+        displayText.textContent =
+        "Please enter your name.";
+
+      }else{
+
+        displayText.textContent =
+        "Welcome " + nameInput.value + " 👋";
+
+      }
+
+    });
+
+    // DYNAMIC LIST
+    const itemInput = document.getElementById("itemInput");
+    const addItemBtn = document.getElementById("addItemBtn");
+    const activityList = document.getElementById("activityList");
+
+    function createListItem(text){
+
+      const li = document.createElement("li");
+
+      li.textContent = text;
+
+      li.className =
+      "list-item shadow-lg px-5 py-4 rounded-2xl cursor-pointer hover:scale-[1.02] transition-all duration-300";
+
+      li.addEventListener("click", () => {
+
+        li.remove();
+
+      });
+
+      activityList.appendChild(li);
+
+    }
+
+    addItemBtn.addEventListener("click", () => {
+
+      if(itemInput.value.trim() !== ""){
+
+        createListItem(itemInput.value);
+
+        itemInput.value = "";
+
+      }
+
+    });
+
+    // SEARCH
+    const searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("keyup", () => {
+
+      const filter =
+      searchInput.value.toLowerCase();
+
+      const items =
+      document.querySelectorAll("#activityList li");
+
+      items.forEach(item => {
+
+        const text =
+        item.textContent.toLowerCase();
+
+        if(text.includes(filter)){
+
+          item.style.display = "block";
+
+        }else{
+
+          item.style.display = "none";
+
+        }
+
+      });
+
+    });
+
+    // ACTIVITY CARDS
+    const activityButtons =
+    document.querySelectorAll(".activityBtn");
+
+    activityButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const activityName =
+        button.parentElement.querySelector("h3").textContent;
+
+        createListItem(activityName);
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
